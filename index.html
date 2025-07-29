@@ -2,13 +2,13 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produktkatalog Healthcare Schweiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #f4f4f4;
         }
         header {
             background-color: #0077c8;
@@ -23,19 +23,17 @@
         header h1 {
             color: white;
             margin: 0;
-            font-size: 1.5em;
+            font-size: 1.8em;
         }
         .download-button {
-            text-align: center;
-            margin: 20px;
-        }
-        .download-button a {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 20px;
             background-color: #0077c8;
             color: white;
-            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-weight: bold;
         }
         .pdf-container {
             width: 100%;
@@ -55,11 +53,9 @@
         <img src="Ecolab logo.png" alt="ECOLAB Logo">
         <h1>Produktkatalog Healthcare Schweiz</h1>
     </header>
-    <div class="download-button">
-        <a href="CH-D_Produktkatalog_07-2025_SCREEN.pdf" download>PDF herunterladen</a>
-    </div>
+    <a class="download-button" href="CH-D_Produktkatalog_07-2025_SCREEN.pdf" download>PDF herunterladen</a>
     <div class="pdf-container">
-        <iframe src="CH-D_Produktkatalog_07-2025_SCREEN.pdf#view=FitH" title="Produktkatalog PDF"></iframe>
+        <iframe src="CH-D_Produktkatalog_07-2025_SCREEN.pdf"></iframe>
     </div>
 </body>
 </html>
