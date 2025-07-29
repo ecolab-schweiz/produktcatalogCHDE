@@ -1,58 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produktkatalog Healthcare Schweiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            background-color: #f4f4f4;
         }
         header {
-            background: #0066cc;
+            background-color: #0077c8;
             color: white;
-            padding: 1em;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .search-container {
+            margin: 20px;
             text-align: center;
         }
-        header img {
-            height: 50px;
-            vertical-align: middle;
-        }
-        main {
-            padding: 1em;
-            text-align: center;
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
         }
         iframe {
             width: 100%;
-            height: 80vh;
+            height: 90vh;
             border: none;
         }
-        .download {
-            margin-top: 1em;
-        }
-        .download a {
-            background: #0066cc;
+        .download-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #0077c8;
             color: white;
-            padding: 0.5em 1em;
             text-decoration: none;
             border-radius: 5px;
+            text-align: center;
+            width: fit-content;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="ecolab_logo.png" alt="ECOLAB Logo">
-        <h1>Produktkatalog Healthcare Schweiz</h1>
+        <h1 style="color:#0077c8;">ECOLAB</h1>
+        <h2>Produktkatalog Healthcare Schweiz</h2>
     </header>
-    <main>
-        <iframe src="CH-D_Produktkatalog_NeuesCD_28-07-2025_v06.pdf"></iframe>
-        <div class="download">
-            <a href="CH-D_Produktkatalog_NeuesCD_28-07-2025_v06.pdf" download>📥 PDF herunterladen</a>
-        </div>
-    </main>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Begriff im Katalog suchen..." oninput="searchPDF()">
+    </div>
+    <a class="download-button" href="CH-D_Produktkatalog_NeuesCD_28-07-2025_v06.pdf" download>📥 PDF herunterladen</a>
+    <iframe id="pdfViewer" src="CH-D_Produktkatalog_NeuesCD_28-07-2025_v06.pdf"></iframe>
+
+    <script>
+        function searchPDF() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const viewer = document.getElementById('pdfViewer');
+            if (query.length > 2) {
+                viewer.src = "CH-D_Produktkatalog_NeuesCD_28-07-2025_v06.pdf#search=" + encodeURIComponent(query);
+            } else {
+                viewer.src = "CH-D_Produktkatalog_NeuesCD_28-07-2025_v06.pdf";
+            }
+        }
+    </script>
 </body>
 </html>
